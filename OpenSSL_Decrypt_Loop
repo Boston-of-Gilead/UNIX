@@ -1,0 +1,16 @@
+!Putting on Git because this was a PITA compared to the encryption process.
+
+!Below script decrypts all *.enc in a directory and adds .txt to extension
+
+cd /path/to/folder
+
+foo=".txt"
+
+for file in *.enc;
+
+  do
+      echo $file
+      bar=$file$foo
+      echo $bar
+      openssl enc -d -aes-256-cbc -salt -in $file -out $bar -pass file:/path/to/key.pub
+  done
