@@ -1,0 +1,5 @@
+! Figured I may as well add the encryption piece even though it's easy
+
+for f in /path/to/files/*.txt ;
+  do [ -f $f ] && openssl enc -aes-256-cbc -in $f -out $f.enc -pass file:/path/to/key.pub ;
+done
